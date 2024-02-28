@@ -1,9 +1,6 @@
-package com.playwright.UnderstandingPlaywrightCoreInterfaces;
+package com.playwright;
 
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserContext;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -21,13 +18,15 @@ public class BaseTest {
     @BeforeAll
     static void setUp(){
         playwright = Playwright.create();
-        browser = playwright.chromium().launch();
+        browser = playwright.chromium()
+                .launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1000));
     }
 
     @BeforeEach
     void createContextAndPage(){
         context = browser.newContext();
         page = context.newPage();
+        page.setViewportSize(1920,1080); // ustawienie rozmiarów strony
     }
 
     @AfterEach

@@ -1,9 +1,10 @@
 package com.playwright.UnderstandingPlaywrightCoreInterfaces;
 
+import com.playwright.BaseTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class GettingRidOfTryWithResourcesTests extends BaseTest{
+public class GettingRidOfTryWithResourcesTests extends BaseTest {
 
     @Test
     public void firstPlayWrightTestWithTheContext(){
