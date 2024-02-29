@@ -59,6 +59,9 @@ public class ClickFillOptionsTests extends BaseTest {
         page.fill("id=exampleMessage","Not sure how to say this...");
 
         page.check("id=sendCopy"); // check - metoda zaznaczenia
+
+        Assertions.assertTrue(page.isChecked("id=sendCopy",new Page.IsCheckedOptions().setStrict(true)));
+
         page.uncheck("id=sendCopy"); // uncheck - metoda odznaczenia
         page.click("id=submit-contact");
 
